@@ -1,0 +1,446 @@
+:root {
+--cor-fundo: #363636;
+--cor-texto: wheat;
+--cor-destaque: #FFFF00;
+--font-primaria: 'Roboto', sans-serif;
+--font-secundaria: 'Cookie', cursive;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background-color: var(--cor-fundo);
+color: var(--cor-texto);
+font-family: var(--font-primaria);
+padding-top: 85px; /* compensa o header fixo */
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+height: 85px;
+padding: 0 20px;
+}
+
+.navbar-brand img {
+width: 90px;
+}
+
+.nav-link {
+color: var(--cor-texto) !important;
+font-weight: bold;
+font-size: 1.2rem;
+}
+
+.nav-link:hover {
+color: var(--cor-destaque) !important;
+}
+
+.social-icons img {
+width: 40px;
+height: 40px;
+transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+transform: scale(1.1);
+}
+
+/* ===== CARROSSEL ===== */
+.carousel-item img {
+height: 100vh;
+object-fit: cover;
+}
+
+@media (max-width: 767px) {
+.carousel-item img {
+height: 250px;
+}
+}
+
+/* ===== QUEM SOMOS ===== */
+.quemsomos h2 {
+font-size: 4.5rem;
+margin-top: 3rem;
+font-weight: bold;
+color: var(--cor-destaque);
+}
+
+.quemsomos p {
+font-family: var(--font-secundaria);
+font-size: 1.5rem;
+margin: 2rem auto;
+max-width: 800px;
+}
+
+
+/* ===== PORTFÓLIO ===== */
+.portfolio {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.portfolio h2 {
+  font-size: 3rem;
+  color: wheat;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.portfolio-viewer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.portfolio-image img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.4s ease-in-out, transform 0.3s ease;
+  cursor: zoom-in;
+  opacity: 1;
+}
+
+/* ===== Efeito Fade ===== */
+.fade-in { animation: fadeIn 0.4s forwards; }
+.fade-out { animation: fadeOut 0.3s forwards; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* ===== Setas ===== */
+.arrow {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: wheat;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0 15px;
+  border-radius: 5px;
+  transition: background 0.3s;
+  z-index: 2;
+}
+
+.arrow:hover { background: rgba(255, 255, 0, 0.4); }
+
+.arrow.left { position: absolute; left: 10px; }
+.arrow.right { position: absolute; right: 10px; }
+
+/* ===== LIGHTBOX (Zoom) ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.lightbox-content {
+  max-width: 75%;
+  max-height: 75%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover { color: #ddd; }
+
+/* ===== Responsivo ===== */
+@media (max-width: 768px) {
+  .portfolio-image img { max-height: 300px; }
+  .arrow { font-size: 2rem; }
+}
+
+/* ===== GALERIA ===== */
+/* ===== GALERIA ===== */
+.galeria {
+  padding: 50px 0;
+}
+
+.imagem-principal {
+  position: relative;
+  display: inline-block;
+  max-width: 90%;
+}
+
+.imagem-principal img {
+  width: 100%;
+  max-height: 500px;
+  border-radius: 8px;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: manipulation;
+}
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.seta.esquerda { left: 10px; }
+.seta.direita { right: 10px; }
+
+.seta:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.miniaturas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 15px;
+}
+
+.miniaturas img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, border 0.2s;
+}
+
+.miniaturas img:hover,
+.miniaturas img.ativa {
+  transform: scale(1.05);
+  border: 2px solid yellow;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .seta {
+    font-size: 1.8rem;
+    padding: 8px 12px;
+  }
+  .miniaturas img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+
+/* ===== LOJA ===== */
+.loja {
+padding: 5rem 2rem;
+}
+.loja-titulo {
+text-align: center;
+font-size: 3rem;
+margin-bottom: 3rem;
+}
+.loja-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 2rem;
+}
+.loja-card {
+background-color: var(--cor-texto);
+padding: 2rem;
+border-radius: 8px;
+text-align: center;
+transition: transform 0.3s ease;
+}
+.loja-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.loja-card img {
+width: 100%;
+border-radius: 8px;
+margin-bottom: 1rem;
+}
+.loja-card h3, .preco {
+color: #121113;
+font-weight: bold;
+}
+
+/* ===== FORMULÁRIO ===== */
+.footer {
+color: #fff;
+padding: 40px 20px;
+text-align: center;
+}
+.footer form {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+max-width: 400px;
+margin: auto;
+}
+.footer input, .footer textarea {
+width: 100%;
+padding: 10px;
+border-radius: 4px;
+border: none;
+}
+.footer button {
+background-color: #d32f2f;
+color: #fff;
+border: none;
+border-radius: 8px;
+padding: 10px 25px;
+cursor: pointer;
+position: relative;
+transition: 0.3s;
+}
+.footer button:hover {
+background-color: #e53935;
+transform: translateY(-2px);
+}
+.spinner {
+display: none;
+margin-left: 8px;
+border: 2px solid #fff;
+border-top: 2px solid transparent;
+border-radius: 50%;
+width: 16px;
+height: 16px;
+animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+
+/* ===== RODAPÉ FINAL ===== */
+.site-footer {
+background-color: #363636;
+color: #fff;
+text-align: center;
+padding: 15px;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+.loja-grid { grid-template-columns: 1fr; }
+.quemsomos h2 { font-size: 2.5rem; }
+}
+
+.musica-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: wheat;
+  border: 2px solid wheat;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.3);
+  transition: 0.3s ease-in-out;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.musica-btn.fade-in { animation: aparecer 0.8s ease forwards; }
+
+@keyframes aparecer {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.musica-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 0, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
+}
+
+.musica-btn.tocando {
+  background: rgba(255, 255, 0, 0.3);
+  color: black;
+  border-color: yellow;
+  box-shadow: 0 0 25px rgba(255, 255, 0, 0.8);
+}
+
+.musica-btn .ondas {
+  position: absolute;
+  display: flex;
+  gap: 4px;
+  bottom: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.musica-btn.tocando .ondas { opacity: 1; }
+
+.musica-btn .ondas span {
+  display: block;
+  width: 4px;
+  height: 8px;
+  background: yellow;
+  border-radius: 2px;
+  animation: onda 1s infinite ease-in-out;
+}
+
+.musica-btn .ondas span:nth-child(2) { animation-delay: 0.2s; }
+.musica-btn .ondas span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes onda {
+  0%, 100% { transform: scaleY(1); opacity: 0.4; }
+  50% { transform: scaleY(2); opacity: 1; }
+}
+
+.musica-aviso {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  color: wheat;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.3);
+  z-index: 998;
+}
+
+

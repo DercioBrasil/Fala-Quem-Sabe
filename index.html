@@ -445,54 +445,58 @@ document.addEventListener("DOMContentLoaded", () => {
   const icone = botao.querySelector(".icone-musica");
   const aviso = document.getElementById("musicaAviso");
 
-  // === Coloca aqui o nome do teu ficheiro MP3 (sem acentos nem espaços) ===
   const playlist = [
-  "musicas_Fala_Quem_Sabe/fala_quem_sabe_vamos_a_tasca.mp3",
-  "musicas_Fala_Quem_Sabe/fala_quem_sabe_vem_às_vacas_comigo.mp3",
-  "musicas_Fala_Quem_Sabe/fala_quem_sabe_adês_adês.mp3"
+    "musicas_Fala_Quem_Sabe/fala_quem_sabe_vamos_a_tasca.mp3",
+    "musicas_Fala_Quem_Sabe/fala_quem_sabe_vem_às_vacas_comigo.mp3",
+    "musicas_Fala_Quem_Sabe/fala_quem_sabe_adês_adês.mp3"
   ];
 
   let indiceAtual = 0;
   musica.src = playlist[indiceAtual];
   musica.volume = 0.7;
 
-  botao.style.opacity = "1";
+  let tocou = false;
 
-  function iniciarSom() {
+  function tocarMusica() {
     musica.play().then(() => {
       aviso.style.display = "none";
-      ativarAnimacao(true);
+      ativaIcone(true);
+      tocou = true;
     }).catch(() => {
       aviso.style.display = "block";
     });
   }
 
-  document.body.addEventListener("click", iniciarSom, { once: true });
-  botao.addEventListener("click", iniciarSom, { once: true });
+  // 👉 Evento universal de "primeira interação" (funciona Desktop e Mobile)
+  ["click", "touchstart", "scroll", "keydown"].forEach(evt => {
+    window.addEventListener(evt, function ativar() {
+      if (!tocou) tocarMusica();
+      window.removeEventListener(evt, ativar);
+    }, { once: true });
+  });
 
   botao.addEventListener("click", () => {
     if (musica.paused) {
-      musica.play();
-      ativarAnimacao(true);
-      aviso.style.display = "none";
+      tocarMusica();
     } else {
       musica.pause();
-      ativarAnimacao(false);
+      ativaIcone(false);
     }
   });
 
   musica.addEventListener("ended", () => {
     indiceAtual = (indiceAtual + 1) % playlist.length;
     musica.src = playlist[indiceAtual];
-    musica.play();
+    tocarMusica();
   });
 
-  function ativarAnimacao(ativo) {
-    icone.textContent = ativo ? "🔊" : "🔈";
-    botao.classList.toggle("tocando", ativo);
+  function ativaIcone(aTocar) {
+    icone.textContent = aTocar ? "🔊" : "🔈";
+    botao.classList.toggle("tocando", aTocar);
   }
 });
 </script>
+
 
 
 <script>
@@ -528,4 +532,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="js/script.js"></script>
 </body>
 </html>
+
+
 

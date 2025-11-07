@@ -3,7 +3,7 @@
 --cor-texto: wheat;
 --cor-destaque: #FFFF00;
 --font-primaria: 'Roboto', sans-serif;
---font-secundaria: 'Cookie', cursive;
+--font-secundaria: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 * {
@@ -118,7 +118,7 @@ height: 250px;
 
 /* ===== QUEM SOMOS ===== */
 .quemsomos h2 {
-font-size: 4.5rem;
+font-size: 5rem;
 margin-top: 3rem;
 font-weight: bold;
 color: var(--cor-destaque);
@@ -126,7 +126,7 @@ color: var(--cor-destaque);
 
 .quemsomos p {
 font-family: var(--font-secundaria);
-font-size: 1.5rem;
+font-size: 1rem;
 margin: 2rem auto;
 max-width: 800px;
 }
@@ -478,7 +478,7 @@ z-index: 999;
 display: flex;
 justify-content: center;
 align-items: center;
-opacity: 0;
+opacity: 1;
 transform: translateY(15px);
 }
 
@@ -542,6 +542,7 @@ font-size: 0.95rem;
 box-shadow: 0 0 15px rgba(255, 255, 0, 0.3);
 z-index: 998;
 }
+
 
 
 

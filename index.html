@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fala Quem Sabe</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Inter:wght@100..900&family=Knewave&family=Roboto:wght@100..900&family=Cookie&display=swap"
+    rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#home">
+          <img src="imagens/logo/Untitled-1.png" alt="Fala Quem Sabe" width="90">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal" aria-expanded="false" aria-label="Alternar navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+            <!--<li class="nav-item"><a class="nav-link" href="#loja">Loja</a></li>-->
+            <li class="nav-item"><a class="nav-link" href="#contactos">Contactos</a></li>
+          </ul>
+
+          <div class="social-icons d-flex gap-2">
+            <a href="https://www.facebook.com/falaquemsabe.pt" target="_blank" title="Facebook">
+              <img src="imagens/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/falaquemsabe.pt" target="_blank" title="Instagram">
+              <img src="imagens/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/@pt.falaquemsabe" target="_blank" title="YouTube">
+              <img src="imagens/youtube.png" alt="YouTube">
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== CARROSSEL ===== -->
+  <section id="home" class="carousel-section">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-interval="3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imagens/fotos postais 020.jpg" class="d-block w-100" alt="FQS espetáculo">
+        </div>
+        <div class="carousel-item">
+          <img src="imagens/1920x1080 FQS+Chico Maravilhas GERAL (2).png" class="d-block w-100"
+            alt="FQS e Chico Maravilhas">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <main>
+    <!-- ===== QUEM SOMOS ===== -->
+    <section id="quemsomos" class="quemsomos text-center">
+      <div class="container">
+        <h2 style="color: wheat;">Bem-vindos</h2>
+        <p>
+          São eles os três lavradores mais conhecidos dos Açores e arredores: Ramiro, Batista e Silveira, o trio que faz
+          rir a nossa gente há anos.
+          <br>
+          Como o nosso querido Silveira se encontra fora, a dupla original – Ramiro e Batista – não vos podia deixar sem
+          animação!
+          <br>
+          Para as vossas festas, convidaram um amigo de longa data e garantia de boa disposição: <strong>Chico
+            Maravilhas</strong>!
+          <br>
+          Preparem-se para um espetáculo inesquecível, com muita comédia e música que vos vai pôr a rir e a dançar!
+        </p>
+      </div>
+    </section>
+
+<!-- ===== PORTFÓLIO ===== -->
+<section id="portfolio" class="portfolio">
+  <div class="container text-center">
+    <h2>Portfólio</h2>
+
+    <div class="portfolio-viewer">
+      <button class="arrow left" id="prevBtn">&#10094;</button>
+
+      <div class="portfolio-image">
+        <img id="portfolioImg"
+          src="imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0001.jpg"
+          alt="Portfólio">
+      </div>
+
+      <button class="arrow right" id="nextBtn">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- ===== LIGHTBOX (ZOOM) ===== -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <button class="lightbox-arrow left" id="lightboxPrev">&#10094;</button>
+    <img class="lightbox-content" id="lightboxImg" alt="Zoom Portfólio">
+    <button class="lightbox-arrow right" id="lightboxNext">&#10095;</button>
+  </div>
+</section>
+
+<script>
+  const images = [
+    "imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0001.jpg",
+    "imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0002.jpg",
+    "imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0003.jpg",
+    "imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0004.jpg",
+    "imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0005.jpg",
+    "imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0006.jpg",
+    "imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0007.jpg",
+    "imagens/ilovepdf_pages-to-jpg (1)/Fala Quem Sabe - Portfólio_page-0008.jpg"
+  ];
+
+  let index = 0;
+  const imgElement = document.getElementById("portfolioImg");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const closeBtn = lightbox.querySelector(".close");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  // ===== TROCA DE IMAGEM COM FADE =====
+  function changeImage(newIndex) {
+    imgElement.classList.remove("fade-in");
+    imgElement.classList.add("fade-out");
+    setTimeout(() => {
+      imgElement.src = images[newIndex];
+      imgElement.classList.remove("fade-out");
+      imgElement.classList.add("fade-in");
+    }, 300);
+  }
+
+  // ===== TROCA DE IMAGEM NO LIGHTBOX =====
+  function changeLightboxImage(newIndex) {
+    lightboxImg.classList.remove("fade-in");
+    lightboxImg.classList.add("fade-out");
+    setTimeout(() => {
+      lightboxImg.src = images[newIndex];
+      lightboxImg.classList.remove("fade-out");
+      lightboxImg.classList.add("fade-in");
+    }, 300);
+  }
+
+  // ===== BOTÕES DE NAVEGAÇÃO PRINCIPAL =====
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + images.length) % images.length;
+    changeImage(index);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % images.length;
+    changeImage(index);
+  });
+
+  // ===== ABRIR LIGHTBOX =====
+  imgElement.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = images[index];
+  });
+
+  // ===== FECHAR LIGHTBOX =====
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+  });
+
+  // ===== NAVEGAÇÃO DENTRO DO LIGHTBOX =====
+  lightboxPrev.addEventListener("click", (e) => {
+    e.stopPropagation();
+    index = (index - 1 + images.length) % images.length;
+    changeLightboxImage(index);
+  });
+
+  lightboxNext.addEventListener("click", (e) => {
+    e.stopPropagation();
+    index = (index + 1) % images.length;
+    changeLightboxImage(index);
+  });
+
+  // ===== NAVEGAÇÃO POR TECLADO =====
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "ArrowLeft") {
+        index = (index - 1 + images.length) % images.length;
+        changeLightboxImage(index);
+      }
+      if (e.key === "ArrowRight") {
+        index = (index + 1) % images.length;
+        changeLightboxImage(index);
+      }
+      if (e.key === "Escape") {
+        lightbox.style.display = "none";
+      }
+    }
+  });
+</script>
+
+<!-- ===== GALERIA ===== -->
+<section id="galeria" class="galeria">
+  <div class="container text-center">
+    <h2 style="font-size: 3rem;">Galeria</h2>
+
+    <!-- Imagem principal -->
+    <div class="imagem-principal">
+      <button class="seta esquerda" id="setaEsq">&#10094;</button>
+      <img id="imagemDestaque" src="galeria/fotos postais 017.jpg"  alt="Imagem Destaque">
+      <button class="seta direita" id="setaDir">&#10095</button>
+    </div>
+
+    <!-- Miniaturas -->
+    <div class="miniaturas">
+      <img src="galeria/Fala quem sabe (jantar benfica).jpg" alt="Miniatura 1">
+      <img src="galeria/Fala quem sabe 011.jpg" alt="Miniatura 2">
+      <img src="galeria/Fala quem sabe 025.jpg" alt="Miniatura 3">
+      <img src="galeria/Fala quem sabe 043.jpg" alt="Miniatura 4">
+      <img src="galeria/Fala quem sabe 066.jpg" alt="Miniatura 5">
+      <img src="galeria/fotos postais 131.jpg" alt="Miniatura 6">
+      <img src="galeria/fotos postais 140.jpg" alt="Miniatura 7">
+      <img src="galeria/HPIM2778.jpg" alt="Miniatura 8">
+      <img src="galeria/HPIM2860.jpg" alt="Miniatura 9">
+      <img src="galeria/imagens filmagens casa assombrada 022.jpg" alt="Miniatura 10">
+      <img src="galeria/IMG-20200119-WA0021.jpg" alt="Miniatura 11">
+      <img src="galeria/IMG-20200121-WA0019.jpg" alt="Miniatura 12">
+      <img src="galeria/IMG-20200121-WA0020.jpg" alt="Miniatura 13">
+      <img src="galeria/São Carlos Sombras 001.jpg" alt="Miniatura 14">
+      <img src="galeria/x435.jpg" alt="Miniatura 15">
+    </div>
+  </div>
+</section>
+
+
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const imagens = [
+    "galeria/Fala quem sabe (jantar benfica).jpg",
+    "galeria/Fala quem sabe 011.jpg",
+    "galeria/Fala quem sabe 025.jpg",
+    "galeria/Fala quem sabe 043.jpg",
+    "galeria/Fala quem sabe 066.jpg",
+    "galeria/fotos postais 131.jpg",
+    "galeria/fotos postais 140.jpg",
+    "galeria/HPIM2778.jpg",
+    "galeria/HPIM2860.jpg",
+    "galeria/imagens filmagens casa assombrada 022.jpg",
+    "galeria/IMG-20200119-WA0021.jpg",
+    "galeria/IMG-20200121-WA0019.jpg",
+    "galeria/IMG-20200121-WA0020.jpg",
+    "galeria/São Carlos Sombras 001.jpg",
+    "galeria/x435.jpg"
+  ];
+
+  let indiceAtual = 0;
+  const imgGrande = document.getElementById("imagemDestaque");
+  const thumbs = document.querySelectorAll(".miniaturas img");
+  const setaEsq = document.getElementById("setaEsq");
+  const setaDir = document.getElementById("setaDir");
+
+  // Atualiza imagem principal
+  function atualizarImagem() {
+    imgGrande.src = imagens[indiceAtual];
+    thumbs.forEach(t => t.classList.remove("ativa"));
+    thumbs[indiceAtual].classList.add("ativa");
+  }
+
+  // Navegação pelas setas
+  setaEsq.addEventListener("click", () => {
+    indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
+    atualizarImagem();
+  });
+  setaDir.addEventListener("click", () => {
+    indiceAtual = (indiceAtual + 1) % imagens.length;
+    atualizarImagem();
+  });
+
+  // Miniaturas (clique + toque)
+  thumbs.forEach((t, i) => {
+    ["click", "touchstart"].forEach(evt =>
+      t.addEventListener(evt, () => {
+        indiceAtual = i;
+        atualizarImagem();
+      })
+    );
+  });
+
+  // Swipe (gestos esquerda/direita no mobile)
+  let startX = 0;
+  imgGrande.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+  imgGrande.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) { // swipe esquerda
+      indiceAtual = (indiceAtual + 1) % imagens.length;
+    } else if (endX - startX > 50) { // swipe direita
+      indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
+    }
+    atualizarImagem();
+  });
+
+  atualizarImagem();
+});
+</script>
+
+
+
+
+
+    <!-- 
+    ===== LOJA (desativado temporariamente) ===== 
+    <section id="loja" class="loja">
+      <div class="container">
+        <h2 class="loja-titulo">Loja Virtual</h2>
+        <div class="loja-grid">
+          <article class="loja-card">
+            <div class="loja-imagem">
+              <img src="imagens/TshirtCrianca.jpg" alt="Tsxhirt Criança">
+            </div>
+            <h3>Tshirt Criança</h3>
+            <span class="preco">10€</span>
+            <a href="#" class="compra-link">Comprar</a>
+          </article>
+
+           Adicionar restantes produtos 
+        </div>
+      </div>
+    </section>  
+-->
+    <!-- ===== CONTACTOS ===== -->
+    <footer id="contactos" class="footer">
+      <h3>Contacte-nos</h3>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Nome" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Mensagem" required></textarea>
+        <button type="submit" id="sendButton">
+          <span id="btnText">Enviar</span>
+          <span class="spinner" id="spinner"></span>
+        </button>
+      </form>
+      <p id="status"></p>
+    </footer>
+
+
+    <!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    // Inicializa EmailJS assim — novo formato (versão 4)
+    emailjs.init("1KyeuvWjFRNnY1b6T"); // <-- substitui se tiveres outra chave
+
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const templateParams = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        mensagem: document.getElementById("message").value,
+        tempo: new Date().toLocaleString()
+      };
+
+      emailjs
+        .send("service_flpojxv", "template_4ve9e3u", templateParams)
+        .then(() => {
+          status.textContent = "✅ Mensagem enviada com sucesso!";
+          status.style.color = "lightgreen";
+          form.reset();
+        })
+        .catch(error => {
+          status.textContent = "❌ Ocorreu um erro. Tenta novamente.";
+          status.style.color = "orange";
+          console.error("Erro detalhado:", error);
+          alert("Erro: " + JSON.stringify(error));
+        });
+    });
+  });
+</script>
+
+
+
+    <div class="site-footer">
+      <p>© 2025 Fala Quem Sabe</p>
+      <a href="#home" class="go-top">⬆ Voltar ao topo</a>
+    </div>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+
+<!-- ===== MÚSICA DE FUNDO ===== -->
+<audio id="musicaFundo" preload="auto"></audio>
+
+<!-- Botão flutuante -->
+<button id="btnMusica" class="musica-btn" title="Tocar / Pausar música">
+  <span class="icone-musica">🔈</span>
+</button>
+
+<!-- Mensagem de aviso -->
+<div id="musicaAviso" class="musica-aviso">🎵 Toque no 🔈 para ativar a música</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const musica = document.getElementById("musicaFundo");
+  const botao = document.getElementById("btnMusica");
+  const icone = botao.querySelector(".icone-musica");
+  const aviso = document.getElementById("musicaAviso");
+
+  const playlist = [
+    "musicas_Fala_Quem_Sabe/fala_quem_sabe_vamos_a_tasca.mp3",
+    "musicas_Fala_Quem_Sabe/fala_quem_sabe_vem_as_vacas_comigo.mp3",
+    "musicas_Fala_Quem_Sabe/fala_quem_sabe_adês_adês.mp3"
+  ];
+
+  let indiceAtual = 0;
+  musica.src = playlist[indiceAtual];
+  musica.volume = 0.7;
+
+  let tocou = false;
+
+  function tocarMusica() {
+    musica.play().then(() => {
+      aviso.style.display = "none";
+      ativaIcone(true);
+      tocou = true;
+    }).catch(() => {
+      aviso.style.display = "block";
+    });
+  }
+
+  // 👉 Evento universal de "primeira interação" (funciona Desktop e Mobile)
+  ["click", "touchstart", "scroll", "keydown"].forEach(evt => {
+    window.addEventListener(evt, function ativar() {
+      if (!tocou) tocarMusica();
+      window.removeEventListener(evt, ativar);
+    }, { once: true });
+  });
+
+  botao.addEventListener("click", () => {
+    if (musica.paused) {
+      tocarMusica();
+    } else {
+      musica.pause();
+      ativaIcone(false);
+    }
+  });
+
+  musica.addEventListener("ended", () => {
+    indiceAtual = (indiceAtual + 1) % playlist.length;
+    musica.src = playlist[indiceAtual];
+    tocarMusica();
+  });
+
+  function ativaIcone(aTocar) {
+    icone.textContent = aTocar ? "🔊" : "🔈";
+    botao.classList.toggle("tocando", aTocar);
+  }
+});
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const menu = document.getElementById("menuPrincipal");
+
+    // Cria overlay de fundo
+    const overlay = document.createElement("div");
+    overlay.classList.add("menu-overlay");
+    document.body.appendChild(overlay);
+
+    // Quando o menu abre/fecha
+    navbarToggler.addEventListener("click", () => {
+      overlay.classList.toggle("active");
+    });
+
+    // Fecha o menu ao clicar fora (overlay)
+    overlay.addEventListener("click", () => {
+      const bsCollapse = new bootstrap.Collapse(menu, { toggle: false });
+      bsCollapse.hide();
+      overlay.classList.remove("active");
+    });
+
+    // Fecha o overlay se o menu for fechado manualmente
+    menu.addEventListener("hidden.bs.collapse", () => {
+      overlay.classList.remove("active");
+    });
+  });
+</script>
+
+<!-- MANTÉM ESTE POR ÚLTIMO -->
+<script src="js/script.js"></script>
+</body>
+</html>
+
